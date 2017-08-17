@@ -4,32 +4,70 @@
 	"private": true,
 	"scripts": {
 		"prestart": "yarn",
-		"start": "npm-run-all --parallel tsc native-cli",
+		"start": "npm-run-all --parallel tsc native-cli watch",
 		"native-cli": "node node_modules/react-native/local-cli/cli.js start",
 		"tsc": "tsc -w",
+		"standard-lint": "standard --parser typescript-eslint-parser --plugin typescript src/**/*.ts src/**/*.tsx",
+		"standard-reformat": "npm run standard -- --fix",
+		"watch": "npm-watch",
 		"test": "jest",
 		"rc-start": "npm start -- --reset-cache",
 		"clean": "rm -rf $TMPDIR/react-* && watchman watch-del-all && npm cache clean",
 		"clean-start": "npm run clean && npm run rc-start",
 		"fresh-install": "rm -rf $TMPDIR/react-* && watchman watch-del-all && rm -rf ios/build/ModuleCache/* && rm -rf node_modules/ && npm cache clean && npm install",
-		"fresh-start" : "npm run fresh-install && npm run rc-start"
+		"fresh-start": "npm run fresh-install && npm run rc-start"
 	},
 	"dependencies": {
+		"axios": "^0.16.2",
+		"eslint-plugin-typescript": "^0.5.0",
+		"lodash": "^4.17.4",
+		"normalizr": "3.2.3",
 		"react": "16.0.0-alpha.12",
-		"react-native": "0.47.1"
+		"react-native": "0.47.1",
+		"react-native-vector-icons": "^4.3.0",
+		"react-navigation": "^1.0.0-beta.11",
+		"react-redux": "5.0.6",
+		"redux": "3.7.2",
+		"redux-actions": "^2.2.1",
+		"redux-saga": "^0.15.6",
+		"reselect": "^3.0.1",
+		"typescript-eslint-parser": "^5.0.1"
 	},
 	"devDependencies": {
+		"@types/axios": "^0.14.0",
+		"@types/lodash": "^4.14.73",
+		"@types/normalizr": "^2.0.18",
 		"@types/react": "^16.0.2",
 		"@types/react-native": "^0.47.4",
+		"@types/react-navigation": "^1.0.19",
+		"@types/react-redux": "5.0.4",
+		"@types/redux-actions": "^1.2.8",
+		"@types/redux-saga": "^0.10.5",
 		"babel-jest": "20.0.3",
-		"babel-preset-react-native": "2.0.0",
+		"babel-preset-react-native": "3.0.0",
 		"jest": "20.0.4",
 		"npm-run-all": "^4.0.2",
+		"npm-watch": "^0.2.0",
 		"react-test-renderer": "16.0.0-alpha.12",
+		"standard": "^10.0.3",
 		"typescript": "^2.4.2",
 		"yarn": "^0.27.5"
 	},
 	"jest": {
 		"preset": "react-native"
+	},
+	"standard": {
+		"parser": "typescript-eslint-parser",
+		"plugins": [
+			"typescript"
+		]
+	},
+	"watch": {
+		"standard-lint": {
+			"patterns": [
+				"src"
+			],
+			"extensions": "ts,tsx"
+		}
 	}
 }

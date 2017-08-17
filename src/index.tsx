@@ -1,30 +1,30 @@
-import * as React from 'react';
+import * as React from 'react'
 import {
   AppRegistry,
   StyleSheet,
   Text,
   View
-} from 'react-native';
+} from 'react-native'
+
+import createStore from './core/create'
+import { Provider } from 'react-redux'
+import App from './view/navigators/App'
+
+export const store = createStore();
+
+(console as any).disableYellowBox = true // any is a hack
 
 export default class OneViewMobile extends React.Component {
-  render() {
+  render () {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React !
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
-      </View>
-    );
+      <Provider store={store} key='provider'>
+        <App />
+      </Provider>
+    )
   }
 }
 
+/* leave for example
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -43,5 +43,6 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
 });
+*/
 
-AppRegistry.registerComponent('OneViewMobile', () => OneViewMobile);
+AppRegistry.registerComponent('OneViewMobile', () => OneViewMobile)
