@@ -14,8 +14,8 @@ interface IState {
 
 class App extends React.PureComponent<IProps, IState> {
   render () {
-    return (<View>
-      <Text>xx</Text>
+    return (<View style={{margin: 100}}>
+      <Text>hello?</Text>
     </View>)
   }
 }
