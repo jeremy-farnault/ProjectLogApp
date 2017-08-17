@@ -3,18 +3,31 @@
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
-		"start": "node node_modules/react-native/local-cli/cli.js start",
-		"test": "jest"
+		"prestart": "yarn",
+		"start": "npm-run-all --parallel tsc native-cli",
+		"native-cli": "node node_modules/react-native/local-cli/cli.js start",
+		"tsc": "tsc -w",
+		"test": "jest",
+		"rc-start": "npm start -- --reset-cache",
+		"clean": "rm -rf $TMPDIR/react-* && watchman watch-del-all && npm cache clean",
+		"clean-start": "npm run clean && npm run rc-start",
+		"fresh-install": "rm -rf $TMPDIR/react-* && watchman watch-del-all && rm -rf ios/build/ModuleCache/* && rm -rf node_modules/ && npm cache clean && npm install",
+		"fresh-start" : "npm run fresh-install && npm run rc-start"
 	},
 	"dependencies": {
 		"react": "16.0.0-alpha.12",
 		"react-native": "0.47.1"
 	},
 	"devDependencies": {
+		"@types/react": "^16.0.2",
+		"@types/react-native": "^0.47.4",
 		"babel-jest": "20.0.3",
-		"babel-preset-react-native": "3.0.0",
+		"babel-preset-react-native": "2.0.0",
 		"jest": "20.0.4",
-		"react-test-renderer": "16.0.0-alpha.12"
+		"npm-run-all": "^4.0.2",
+		"react-test-renderer": "16.0.0-alpha.12",
+		"typescript": "^2.4.2",
+		"yarn": "^0.27.5"
 	},
 	"jest": {
 		"preset": "react-native"
