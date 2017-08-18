@@ -1,4 +1,4 @@
-import {applyMiddleware, compose, createStore as _createStore, Store} from 'redux'
+import { applyMiddleware, compose, createStore as _createStore, Store } from 'redux'
 import createSagaMiddleware from 'redux-saga'
 import normailzrMiddleware from './middlewares/NormalizrMiddleware'
 import rootSaga from './saga'

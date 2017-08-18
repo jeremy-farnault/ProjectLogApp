@@ -1,9 +1,12 @@
 import { normalize, schema } from 'normalizr'
 import * as lodash from 'lodash'
 
+// FIXME all entities in this file is un typed
+
 // *****
 // * define all the schema types here
 // *****
+// TODO remove the examples
 const schemaTypes = {
   chartData: 'chartData',
   contactInfo: 'contactInfo',
@@ -30,6 +33,7 @@ const baseSchemas = lodash.mapValues(schemaTypes, (type)=> new schema.Entity(typ
 // *****
 // * define all the schema details here - for schemas that are nested
 // *****
+// TODO remove the examples
 baseSchemas[schemaTypes.instrument] = new schema.Entity(schemaTypes.instrument, {}, { idAttribute: 'symbol' });
 baseSchemas[schemaTypes.quotes] = new schema.Entity(schemaTypes.quotes, {}, { idAttribute: 'symbol' });
 baseSchemas[schemaTypes.research] = new schema.Entity(schemaTypes.research, {}, { idAttribute: 'filename' });
@@ -44,6 +48,7 @@ baseSchemas[schemaTypes.portfolio].define({
 // *****
 // * define all the schema to handle the response - ie. what the root of the response looks like
 // *****
+// TODO remove the examples
 export const responseSchemasTypes = {
   parties: 'parties',
   transactions: 'transactions',

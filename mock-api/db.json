@@ -1,0 +1,165 @@
+{
+  "me": [
+    {
+      "id": "a@a.com",
+      "user": {
+        "userId": "11156bdf-652b-4c39-811b-377398477d5c",
+        "login": "a@a.com"
+      },
+      "advisers": [
+        {
+          "name": "Bill M. Hugglemore",
+          "email": "BillHugglemore@smithstone.biz",
+          "code": "BMH",
+          "id": "281474976719951",
+          "phone": "(07) 3546 1353"
+        },
+        {
+          "name": "Ashton A. Crofts",
+          "email": "AshtonCrofts@smithstone.biz",
+          "code": "AAC",
+          "id": "281474976719982",
+          "phone": "(02) 6790 4925"
+        }
+      ],
+      "parties": [
+        {
+          "id": "281474976716867",
+          "name": "Sophia L. Callaghan",
+          "email": "a@a.com"
+        },
+        {
+          "id": "281474976714771",
+          "name": "Phyllis D. Carr"
+        },
+        {
+          "id": "281474976714762",
+          "name": "Jon Ice",
+          "phone": "567 3412",
+          "email": "john.ice@client-portal.afnzsl.com"
+        },
+        {
+          "id": "281474976714768",
+          "name": "Jason Lewis",
+          "phone": "02851284819",
+          "email": "j.lewis@client-portal.afnzsl.com"
+        },
+        {
+          "id": "281474976714512",
+          "name": "Amy Lee",
+          "phone": "02759123123",
+          "email": "amili@client-portal.afnzsl.com"
+        }
+      ],
+      "preferences": {
+        "toggle": {
+          "home": false,
+          "search": false,
+          "watchlist": false,
+          "instrumentPages": false,
+          "marketData": true,
+          "documents": true
+        }
+      },
+      "accountParties": [
+        {
+          "authorized": false,
+          "holder": true,
+          "id": "281474976720541",
+          "party": "281474976716867",
+          "primary": false
+        },
+        {
+          "authorized": false,
+          "holder": true,
+          "id": "281474976720112",
+          "party": "281474976714771",
+          "primary": false
+        }
+      ],
+      "accounts": [
+        {
+          "advisers": [
+            "281474976719951"
+          ],
+          "primaryAdvisers": [
+            "281474976719951"
+          ],
+          "assistants": [
+            "281474976714762",
+            "281474976714768"
+          ],
+          "1y": {
+            "return": 12286.66,
+            "percent": 3.11,
+            "percentBeforeTax": 3.75,
+            "returnBeforeTax": 15351.23
+          },
+          "number": "A50258",
+          "riskProfile": "CONSERVATIVE",
+          "sinceInception": {
+            "return": 2789106.40000000,
+            "percent": 112.02000000
+          },
+          "name": "Callaghan Private",
+          "timeHorizon": "FOUR_YEARS",
+          "riskLevel": "MODERATE",
+          "id": "281474976720540",
+          "valuation": 4271163.26000000,
+          "serviceLevel": "CLASS_DIMS",
+          "managementBasis": "DISCRETIONARY",
+          "kind": "PRIVATE",
+          "yearToDate": {
+            "return": -70694.59000000,
+            "percent": -1.26000000
+          },
+          "investmentGoal": "CAPITAL_GROWTH",
+          "accountParties": [
+            "281474976720541"
+          ],
+          "baseCcy": "NZD"
+        },
+        {
+          "advisers": [
+            "281474976719951",
+            "281474976719982"
+          ],
+          "primaryAdvisers": [
+            "281474976719982"
+          ],
+          "assistants": [
+            "281474976714762",
+            "281474976714512"
+          ],
+          "1y": {
+            "return": 54532.66,
+            "percent": 33.11
+          },
+          "number": "A50044",
+          "riskProfile": "CONSERVATIVE",
+          "sinceInception": {
+            "return": 284573.24000000,
+            "percent": 47.79000000
+          },
+          "name": "Carr Private",
+          "timeHorizon": "TWO_YEARS",
+          "riskLevel": "LOW",
+          "id": "281474976720110",
+          "valuation": 1013926.01000000,
+          "serviceLevel": "CLASS_DIMS",
+          "managementBasis": "DISCRETIONARY",
+          "kind": "PRIVATE",
+          "yearToDate": {
+            "return": 5563.20000000,
+            "percent": 0.91000000
+          },
+          "investmentGoal": "CAPITAL_PRES",
+          "accountParties": [
+            "281474976720112"
+          ],
+          "baseCcy": "EUR"
+        }
+      ]
+    }
+  ]
+}
