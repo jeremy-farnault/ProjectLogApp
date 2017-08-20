@@ -19,5 +19,9 @@ interface IMe {
   accounts: string[],
 }
 
-interface IAdviser {
+interface IUser {
+  id: string,
+  name: string,
+  party: string,
+  partyName: string
 }
