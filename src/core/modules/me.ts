@@ -11,9 +11,9 @@ export default handleActions({
       ...action.payload.normalized.result,
       loaded: true
     }
-    ),
+  ),
   [LOAD_FAIL]: (state) => state
-}, {loaded: false}
+}, { loaded: false }
 )
 
 export const load = createAction<null>(LOAD)

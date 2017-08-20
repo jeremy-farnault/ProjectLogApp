@@ -19,7 +19,7 @@ export const store = createStore();
 export default class OneViewMobile extends React.Component {
   render () {
     return (
-      <Provider store={store} key='provider'>
+      <Provider store={store} key="provider">
         <App />
       </Provider>
     )

@@ -33,7 +33,7 @@ class App extends React.PureComponent<IProps, IState> {
 
   render () {
     return (<View style={styles.container}>
-      <Text>hello aaa?</Text>
+      <Text>hello 123?</Text>
     </View>)
   }
 }

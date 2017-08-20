@@ -28,22 +28,22 @@ const schemaTypes = {
   research : 'research',
   searchItems: 'searchItems',
   quotes: 'quotes'
-};
-const baseSchemas = lodash.mapValues(schemaTypes, (type)=> new schema.Entity(type));
+}
+const baseSchemas = lodash.mapValues(schemaTypes, (type) => new schema.Entity(type))
 // *****
 // * define all the schema details here - for schemas that are nested
 // *****
 // TODO remove the examples
-baseSchemas[schemaTypes.instrument] = new schema.Entity(schemaTypes.instrument, {}, { idAttribute: 'symbol' });
-baseSchemas[schemaTypes.quotes] = new schema.Entity(schemaTypes.quotes, {}, { idAttribute: 'symbol' });
-baseSchemas[schemaTypes.research] = new schema.Entity(schemaTypes.research, {}, { idAttribute: 'filename' });
+baseSchemas[schemaTypes.instrument] = new schema.Entity(schemaTypes.instrument, {}, { idAttribute: 'symbol' })
+baseSchemas[schemaTypes.quotes] = new schema.Entity(schemaTypes.quotes, {}, { idAttribute: 'symbol' })
+baseSchemas[schemaTypes.research] = new schema.Entity(schemaTypes.research, {}, { idAttribute: 'filename' })
 baseSchemas[schemaTypes.parties].define({
   contactInfo: [baseSchemas[schemaTypes.contactInfo]]
-});
+})
 
 baseSchemas[schemaTypes.portfolio].define({
   holdings: [baseSchemas[schemaTypes.holdings]]
-});
+})
 
 // *****
 // * define all the schema to handle the response - ie. what the root of the response looks like
@@ -64,9 +64,9 @@ export const responseSchemasTypes = {
   analysts: 'analysts',
   searchItems: 'searchItems',
   holdingTransaction: 'holdingTransaction',
-  quotes :'quotes',
-  research: 'research',
-};
+  quotes : 'quotes',
+  research: 'research'
+}
 
 const responseSchemas = {
   [responseSchemasTypes.parties]: {
@@ -93,7 +93,7 @@ const responseSchemas = {
     parties: [baseSchemas.parties],
     accountParties: [baseSchemas.accountParties],
     notifications: [baseSchemas.notifications],
-    portfolioSummaries: [baseSchemas.portfolioSummaries],
+    portfolioSummaries: [baseSchemas.portfolioSummaries]
   },
   [responseSchemasTypes.instrument]: {
     instrument: [baseSchemas.instrument]
@@ -122,31 +122,31 @@ const responseSchemas = {
   },
   [responseSchemasTypes.research]: {
     research: [baseSchemas.research]
-  },
-};
+  }
+}
 
 function doNormalizeRequest(action: any) {
-  if (!action.payload || !action.payload.schema) return;
+  if (!action.payload || !action.payload.schema) return
 
-  const schema = responseSchemas[action.payload.schema];
+  const responseSchema = responseSchemas[action.payload.schema]
 
-  if (!schema) {
-    console.warn('Unknown response normalizr schema type', action.payload.schema);
+  if (!responseSchema) {
+    console.warn('Unknown response normalizr schema type', action.payload.schema)
   }
 
   if (!action.payload.response) {
-    console.warn('A response in payload is required for normalizr', action);
+    console.warn('A response in payload is required for normalizr', action)
   }
 
   action.payload.normalized = normalize(
     action.payload.response.data,
-    schema
-  );
+    responseSchema
+  )
 }
 
 export default function normalizeMiddleware() {
   return (next: any) => (action: any) => {
-    doNormalizeRequest(action);
-    return next(action);
-  };
+    doNormalizeRequest(action)
+    return next(action)
+  }
 }

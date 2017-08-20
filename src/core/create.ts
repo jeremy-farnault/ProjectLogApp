@@ -9,7 +9,9 @@ export default function createStore (data?: any): Store<any> {
 
   const middleware = [sagaMiddleware, normailzrMiddleware]
 
-  const finalCreateStore = compose<any>(applyMiddleware(...middleware), (window as any).devToolsExtension ? (window as any).devToolsExtension() : (f: any) => f)(_createStore)
+  const devToolsExtension = (window as any).devToolsExtension ? (window as any).devToolsExtension() : (f: any) => f
+
+  const finalCreateStore = compose<any>(applyMiddleware(...middleware), devToolsExtension)(_createStore)
 
   const store = finalCreateStore(reducer, data)
 

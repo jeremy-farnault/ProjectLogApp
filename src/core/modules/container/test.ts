@@ -1,9 +1,9 @@
 import { createAction, handleActions } from 'redux-actions'
-export const LOAD = 'OV/me/LOAD';
+export const LOAD = 'OV/me/LOAD'
 
 export default handleActions({
-  [LOAD]: (state, action) => state,
+  [LOAD]: (state, action) => state
 }, {})
 
-export const load = createAction(LOAD);
+export const load = createAction(LOAD)
 
