@@ -1,9 +1,10 @@
 import { combineReducers } from 'redux'
-// import me from './me'
-// import entities from './entities/reducer'
-
-import users from './entities/users'
+import me from './me'
+import container from './container/reducer'
+import entities from './entities/reducer'
 
 export default combineReducers({
-  users
+  me,
+  container,
+  entities,
 })
