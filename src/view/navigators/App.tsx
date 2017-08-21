@@ -41,11 +41,13 @@ class App extends React.PureComponent<IProps, IState> {
   }
 
   render () {
-    const { container } = this.props;
+    const { container, me } = this.props;
     console.log('container', container)
     return (
       <View style={styles.container}>
         <TouchableOpacity onPress={this.changeHello}>
+          <Text> Adviser Ids </Text>
+          <View>{me && me.advisers && me.advisers.map(a => <Text key={a}>{a}</Text>)}</View>
           <Text>click me?</Text>
           <Text>{container.word}</Text>
         </TouchableOpacity>
